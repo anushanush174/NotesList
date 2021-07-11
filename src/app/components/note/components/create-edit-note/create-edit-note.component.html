@@ -24,17 +24,10 @@
     </div>
 
     <div>
-      <button
-        *ngIf="!edit"
-        class="create-save-btn"
-        (click)="onCreate()"
-        [disabled]="notesForm.invalid"
-      >Create</button>
-      <button
-        *ngIf="edit"
-        class="create-save-btn"
-        (click)="onSave()"
-      >Save</button>
+      <button *ngIf="edit; else create" class="create-save-btn" (click)="onSave()">Save</button>
+      <ng-template #create>
+        <button class="create-save-btn" (click)="onCreate()" [disabled]="notesForm.invalid">Create</button>
+      </ng-template>
     </div>
   </div>
 

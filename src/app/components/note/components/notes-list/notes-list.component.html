@@ -1,14 +1,3 @@
 <div *ngFor="let noteItem of noteList">
-  <div class="frame">
-    <div class="float-right">
-      <button class="edit-btn" (click)="onEdit()"></button>
-      <button class="delete-btn" (click)="onDelete(noteItem._id)"></button>
-    </div>
-    <div>
-      <p class="column-title">{{noteItem.title}}</p>
-    </div>
-    <div>
-      <p class="note">{{noteItem.note}}</p>
-    </div>
-  </div>
+  <app-note-item [noteItem]="noteItem" (onDelete)="onDeleteNote($event)"></app-note-item>
 </div>

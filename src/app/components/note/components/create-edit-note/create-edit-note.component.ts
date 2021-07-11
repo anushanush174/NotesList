@@ -10,7 +10,6 @@ import {Note} from '../../models/note';
   styleUrls: ['./create-edit-note.component.css']
 })
 export class CreateEditNoteComponent {
-
   public edit = false;
   public notesForm: FormGroup = new FormGroup({
     title: new FormControl('', [
@@ -29,15 +28,30 @@ export class CreateEditNoteComponent {
   }
 
   public onCreate(): void {
-    this.customHttpService.post('create', this.notesForm.value).subscribe(res => {
-      console.log(res);
-      this.clearAfterSave();
-      this.noteService.getNotes();
-
-    });
-    // this.noteService.notesList.next(this.notesForm.value);
+    // this.customHttpService.post('create', this.notesForm.value).subscribe(res => {
+    //   console.log(res);
+    //   this.clearAfterSave();
+    //   this.noteService.getNotes();
+    // });
+    let notes: any = localStorage.getItem('notes');
+    if (!notes) {
+      localStorage.setItem('notes', JSON.stringify([{
+        title: this.notesForm.controls['title'].value,
+        note: this.notesForm.controls['note'].value,
+        _id: 1
+      }]));
+    } else {
+      notes = JSON.parse(notes);
+      notes.push({
+        title: this.notesForm.controls['title'].value,
+        note: this.notesForm.controls['note'].value,
+        _id: notes.length > 1 ? notes[notes.length - 1]._id + 1 : 1,
+      });
+      localStorage.setItem('notes', JSON.stringify(notes));
+    }
+    this.noteService.getNotes();
+    this.clearAfterSave();
   }
-
 
   private clearAfterSave(): void {
     this.notesForm.get('title').reset();

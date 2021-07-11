@@ -31,7 +31,7 @@ export class CustomHttpService {
   }
 
   delete(path: string, id: number): Observable<any> {
-    const httpParams = new HttpParams().set('id', id);
+    const httpParams = new HttpParams().set('_id', id);
     return this.http.delete(this.API_URL + '/' + path, {params: httpParams});
   }
 

@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Note} from '../../models/note';
 import {NoteService} from '../../note.service';
+import {CustomHttpService} from '../../../../shared/services/custom-http-services';
 
 @Component({
   selector: 'app-note-item',
@@ -8,11 +9,16 @@ import {NoteService} from '../../note.service';
   styleUrls: ['./note-item.component.css']
 })
 export class NoteItemComponent {
+  @Input() noteItem;
+
+  @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onEdit: EventEmitter<any> = new EventEmitter<any>();
+
   // public noteList: Note[] = [];
-  //
-  // constructor(private noteService: NoteService) {
-  // }
-  //
+  constructor(private noteService: NoteService,
+              private customService: CustomHttpService) {
+  }
+
   // ngOnInit(): void {
   //   this.getDataFromService();
   // }
@@ -25,10 +31,11 @@ export class NoteItemComponent {
   //   });
   // }
   //
-  // onEdit() {
-  //   console.log('edit');
-  // }
-  //
-  // onDelete() {
-  // }
+  onEditNote() {
+    this.onEdit.emit(this.noteItem._id);
+  }
+
+  onDeleteNote() {
+    this.onDelete.emit(this.noteItem._id);
+  }
 }
