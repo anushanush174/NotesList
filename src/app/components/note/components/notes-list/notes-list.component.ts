@@ -1,5 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Note} from '../../models/note';
 import {NoteService} from '../../note.service';
 
 @Component({
@@ -10,6 +9,7 @@ import {NoteService} from '../../note.service';
 export class NotesListComponent implements OnInit, OnDestroy {
 
   public noteList: any;
+  public editedNoteId: any;
 
   constructor(private noteService: NoteService) {
   }
@@ -18,26 +18,23 @@ export class NotesListComponent implements OnInit, OnDestroy {
     this.noteService.notesList.subscribe(res => this.noteList = res);
   }
 
-  private getDataFromService() {
-    // this.noteService.notesListSubj.subscribe(res => {
-    //   console.log('NOteItemComponent', res);
-    //   this.noteList = res;
-    //   return this.noteList;
-    // });
-  }
-
-  onEdit() {
-    console.log('edit');
-  }
-
   onDeleteNote(id) {
     const filteredList = this.noteList.filter(el => el._id !== id);
     localStorage.setItem('notes', JSON.stringify(filteredList));
     this.noteService.notesList.next(filteredList);
   }
 
+  onEditNote(id: any) {
+    this.editedNoteId = id;
+  }
+
+  onSave(isSave: boolean) {
+    if (isSave) {
+      this.editedNoteId = undefined;
+    }
+  }
+
   ngOnDestroy() {
     this.noteService.notesList.unsubscribe();
   }
-
 }

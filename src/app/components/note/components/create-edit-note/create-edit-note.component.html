@@ -24,7 +24,7 @@
     </div>
 
     <div>
-      <button *ngIf="edit; else create" class="create-save-btn" (click)="onSave()">Save</button>
+      <button *ngIf="edit; else create" class="create-save-btn" (click)="onSave()" [disabled]="notesForm.invalid">Save</button>
       <ng-template #create>
         <button class="create-save-btn" (click)="onCreate()" [disabled]="notesForm.invalid">Create</button>
       </ng-template>

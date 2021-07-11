@@ -8,7 +8,6 @@ import {BehaviorSubject, Subject} from 'rxjs';
 })
 
 export class NoteService {
-  public edit = false;
   public notesList: BehaviorSubject<Array<Note>> = new BehaviorSubject([]);
   public noteId = new Subject<any>();
 
@@ -19,7 +18,6 @@ export class NoteService {
   getNotes() {
     // after testing uncomment this line
     // this.customHttpService.get('create').subscribe(res => {
-    //   console.log('NoteService', res);
     //   this.notesListSubj.next(res);
     // });
     const notes = localStorage.getItem('notes');

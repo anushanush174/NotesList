@@ -1,3 +1,9 @@
 <div *ngFor="let noteItem of noteList">
-  <app-note-item [noteItem]="noteItem" (onDelete)="onDeleteNote($event)"></app-note-item>
+  <app-note-item *ngIf="noteItem._id !== editedNoteId, else editNote"
+                 [noteItem]="noteItem"
+                 (onDelete)="onDeleteNote($event)"
+                 (onEdit)="onEditNote($event)"></app-note-item>
+  <ng-template #editNote>
+    <app-create-edit-note [note]="noteItem" [edit]="true" (onSaveChanges)="onSave($event)"></app-create-edit-note>
+  </ng-template>
 </div>

@@ -10,9 +10,9 @@ import {CustomHttpService} from '../../../../shared/services/custom-http-service
 })
 export class NoteItemComponent {
   @Input() noteItem;
-
   @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
   @Output() onEdit: EventEmitter<any> = new EventEmitter<any>();
+  editBtnClick = false
 
   // public noteList: Note[] = [];
   constructor(private noteService: NoteService,
@@ -25,7 +25,6 @@ export class NoteItemComponent {
   //
   // private getDataFromService() {
   //   this.noteService.notesListSubj.subscribe(res => {
-  //     console.log('NOteItemComponent', res);
   //     this.noteList = res;
   //     return this.noteList;
   //   });
@@ -33,6 +32,11 @@ export class NoteItemComponent {
   //
   onEditNote() {
     this.onEdit.emit(this.noteItem._id);
+    this.editBtnClick = true;
+  }
+
+  click(){
+    this.editBtnClick = false;
   }
 
   onDeleteNote() {
