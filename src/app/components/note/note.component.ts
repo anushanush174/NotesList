@@ -1,18 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {NoteService} from './note.service';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.css']
 })
-export class NoteComponent implements OnInit {
-
-
-  constructor(private noteService: NoteService) {
+export class NoteComponent {
+  constructor() {
   }
-
-  ngOnInit(): void {
-  }
-
 }

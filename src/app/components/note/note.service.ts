@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {CustomHttpService} from 'src/app/shared/services/custom-http-services';
 import {Note} from './models/note';
 import {BehaviorSubject, Subject} from 'rxjs';
 
@@ -11,12 +10,13 @@ export class NoteService {
   public notesList: BehaviorSubject<Array<Note>> = new BehaviorSubject([]);
   public noteId = new Subject<any>();
 
-  constructor(private customHttpService: CustomHttpService) {
+  constructor(
+    // private customHttpService: CustomHttpService
+  ) {
     this.getNotes();
   }
 
   getNotes() {
-    // after testing uncomment this line
     // this.customHttpService.get('create').subscribe(res => {
     //   this.notesListSubj.next(res);
     // });
@@ -26,7 +26,7 @@ export class NoteService {
     }
   }
 
-  deleteNote(id) {
-    return this.customHttpService.delete('create', id);
-  }
+  // deleteNote(id) {
+  //   return this.customHttpService.delete('delete', id);
+  // }
 }

@@ -3,8 +3,7 @@ import {NoteService} from '../../note.service';
 
 @Component({
   selector: 'app-notes-list',
-  templateUrl: './notes-list.component.html',
-  styleUrls: ['./notes-list.component.css']
+  templateUrl: './notes-list.component.html'
 })
 export class NotesListComponent implements OnInit, OnDestroy {
 

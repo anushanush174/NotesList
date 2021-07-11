@@ -1,11 +1,13 @@
 .create-note {
   float: left;
 }
+
 .column {
   float: left;
   padding: 10px;
   height: auto;
 }
+
 .left, .right {
   width: 25%;
 }
@@ -13,6 +15,7 @@
 .middle {
   width: 25%;
 }
+
 div {
   margin-left: 20px;
   margin-right: 50px;

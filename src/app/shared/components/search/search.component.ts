@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchForm.controls['searchValue'].valueChanges.subscribe(res => this.onSearch(res));
+    this.searchForm.controls.searchValue.valueChanges.subscribe(res => this.onSearch(res));
   }
 
   onSearch(res: string) {

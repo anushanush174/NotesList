@@ -1,7 +1,4 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {Note} from '../../models/note';
-import {NoteService} from '../../note.service';
-import {CustomHttpService} from '../../../../shared/services/custom-http-services';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-note-item',
@@ -12,30 +9,17 @@ export class NoteItemComponent {
   @Input() noteItem;
   @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
   @Output() onEdit: EventEmitter<any> = new EventEmitter<any>();
-  editBtnClick = false
+  editBtnClick = false;
 
-  // public noteList: Note[] = [];
-  constructor(private noteService: NoteService,
-              private customService: CustomHttpService) {
+  constructor() {
   }
 
-  // ngOnInit(): void {
-  //   this.getDataFromService();
-  // }
-  //
-  // private getDataFromService() {
-  //   this.noteService.notesListSubj.subscribe(res => {
-  //     this.noteList = res;
-  //     return this.noteList;
-  //   });
-  // }
-  //
   onEditNote() {
     this.onEdit.emit(this.noteItem._id);
     this.editBtnClick = true;
   }
 
-  click(){
+  click() {
     this.editBtnClick = false;
   }
 
