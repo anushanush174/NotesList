@@ -1,1 +1,41 @@
-<p>create-edit-note works!</p>
+<div class="column-1">
+  <div class="frame" [formGroup]="notesForm">
+    <p
+      class="column-title"
+      *ngIf="!edit"
+    >Create Note</p>
+    <div>
+      <label class="label" for="title"><small>Note title</small></label>
+      <input class="title" id="title" type="text" formControlName="title">
+      <div *ngIf="notesForm.get('title').invalid && notesForm.get('title').touched">
+        <small class="validator" *ngIf="notesForm.get('title').errors.required">This Field Can't Be Empty</small>
+        <small class="validator" *ngIf="notesForm.get('title').errors.maxlength">
+          Length can't be more than {{notesForm.get('title').errors.maxlength.requiredLength}}.
+          Correct Length is {{notesForm.get('title').errors.maxlength.actualLength}}.
+        </small>
+      </div>
+    </div>
+    <div>
+      <label for="note"><small>Note</small></label>
+      <textarea class="note" id="note" formControlName="note"></textarea>
+      <div *ngIf="notesForm.get('note').invalid && notesForm.get('note').touched">
+        <small class="validator" *ngIf="notesForm.get('note').errors.required">This Field Can't Be Empty</small>
+      </div>
+    </div>
+
+    <div>
+      <button
+        *ngIf="!edit"
+        class="create-save-btn"
+        (click)="onCreate()"
+        [disabled]="notesForm.invalid"
+      >Create</button>
+      <button
+        *ngIf="edit"
+        class="create-save-btn"
+        (click)="onSave()"
+      >Save</button>
+    </div>
+  </div>
+
+</div>

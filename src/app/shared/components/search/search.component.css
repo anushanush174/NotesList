@@ -1,12 +1,11 @@
-.search{
-    width: 25%;
-    border-radius: 30px;
-    border: 2px solid rgb(220, 220, 220);
-    font-size: 16px;
-    padding: 5px 30px 5px 20px;
-    outline: none;
-    background-image: url(../../../../assets/img/search.svg) ;
-    background-repeat: no-repeat;
-    background-size: 15px;
-    background-position: 98%;
+.search {
+  border-radius: 30px;
+  border: 2px solid rgb(220, 220, 220);
+  font-size: 16px;
+  padding: 5px 30px 5px 20px;
+  outline: none;
+  background-image: url(../../../../assets/img/search.svg);
+  background-repeat: no-repeat;
+  background-size: 15px;
+  background-position: 98%;
 }

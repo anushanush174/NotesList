@@ -1,0 +1,31 @@
+/*.edit-btn, .delete-btn {*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: 13px;*/
+/*  background-position: 50%;*/
+/*  background-color: #f5f6f8;*/
+/*  padding: 15px;*/
+/*  border: none;*/
+/*}*/
+
+/*.edit-btn {*/
+/*  background-image: url(../../../.././../assets/img/edit.svg);*/
+/*}*/
+
+/*.delete-btn {*/
+/*  background-image: url(../../../.././../assets/img/delete.svg);*/
+/*}*/
+
+/*.title {*/
+/*  color: rgb(85, 86, 88);*/
+/*  margin-top: 3%;*/
+/*  margin-bottom: 3%;*/
+/*  font-weight: bold;*/
+/*}*/
+
+/*.note {*/
+/*  color: rgb(132, 133, 135);*/
+/*}*/
+
+/*.frame {*/
+/*  width: 100%;*/
+/*}*/

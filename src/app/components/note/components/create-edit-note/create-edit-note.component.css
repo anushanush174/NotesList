@@ -1,0 +1,32 @@
+.frame {
+  width: 100%;
+}
+
+label {
+  display: block;
+  color: rgb(146, 147, 149);
+}
+
+input {
+  border: 2px solid rgb(220, 220, 220);
+  outline: none;
+  padding: 5px;
+}
+
+.title {
+  width: 70%;
+  border-radius: 30px;
+}
+
+.note {
+  border-radius: 15px;
+  border: 2px solid rgb(220, 220, 220);
+  padding: 7px;
+  outline: none;
+  width: 95%;
+  height: 100px;
+}
+
+.validator {
+  color: red;
+}
