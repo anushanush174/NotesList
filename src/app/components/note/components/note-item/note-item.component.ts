@@ -9,18 +9,12 @@ export class NoteItemComponent {
   @Input() noteItem;
   @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
   @Output() onEdit: EventEmitter<any> = new EventEmitter<any>();
-  editBtnClick = false;
 
   constructor() {
   }
 
   onEditNote() {
     this.onEdit.emit(this.noteItem._id);
-    this.editBtnClick = true;
-  }
-
-  click() {
-    this.editBtnClick = false;
   }
 
   onDeleteNote() {

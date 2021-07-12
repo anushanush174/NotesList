@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Note} from './models/note';
-import {BehaviorSubject, Subject} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,6 @@ import {BehaviorSubject, Subject} from 'rxjs';
 
 export class NoteService {
   public notesList: BehaviorSubject<Array<Note>> = new BehaviorSubject([]);
-  public noteId = new Subject<any>();
 
   constructor(
     // private customHttpService: CustomHttpService
